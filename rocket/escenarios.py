@@ -1,0 +1,44 @@
+import pygame as pg
+
+
+class Escena:
+    def __init__(self, pantalla):
+        self.pantalla = pantalla
+
+        def bucle_principal(self):
+            pass
+
+class Portada(Escena):
+    def bucle_principal(self):
+        super().bucle_principal()
+        salir = False
+        while not salir:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    salir = True
+            self.pantalla.fill((99, 0, 0))
+            pg.display.flip()
+
+
+class Partida(Escena):
+    def bucle_principal(self):
+        super().bucle_principal()
+        salir = False
+        while not salir:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    salir = True
+            self.pantalla.fill((0, 99, 0))
+            pg.display.flip()
+
+class Jugador(Escena):
+    def bucle_principal(self):
+        super().bucle_pricipal()
+        salir = False
+        while not salir:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    salir = True
+            self.pantalla.fill((0, 0, 99))
+            pg.display.flip()
+
