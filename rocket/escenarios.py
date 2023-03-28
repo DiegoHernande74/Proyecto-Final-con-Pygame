@@ -4,8 +4,8 @@ import pygame as pg
 class Escena:
     def __init__(self, pantalla):
         self.pantalla = pantalla
-
-        def bucle_principal(self):
+    
+    def bucle_principal():
             pass
 
 class Portada(Escena):

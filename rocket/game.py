@@ -7,6 +7,7 @@ class Rocket:
     def __init__(self):
         pg.init()
         self.pantalla = pg.display.set_mode((ANCHO, ALTO))
+        pg.display.set_caption("Rocket")
 
         self.escenarios = [
             Portada(self.pantalla),
