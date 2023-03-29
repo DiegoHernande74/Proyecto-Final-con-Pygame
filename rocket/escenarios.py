@@ -5,7 +5,7 @@ class Escena:
     def __init__(self, pantalla):
         self.pantalla = pantalla
     
-    def bucle_principal():
+    def bucle_principal(self):
             pass
 
 class Portada(Escena):
@@ -33,7 +33,7 @@ class Partida(Escena):
 
 class Jugador(Escena):
     def bucle_principal(self):
-        super().bucle_pricipal()
+        super().bucle_principal()
         salir = False
         while not salir:
             for event in pg.event.get():
