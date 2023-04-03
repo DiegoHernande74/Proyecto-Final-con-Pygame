@@ -1,7 +1,7 @@
 import os
 import pygame as pg
 from rocket import ALTO, ANCHO
-from rocket.escenarios import Portada, Partida, Jugador
+from rocket.escenarios import Portada, Nivel_1, Nivel_2, Nivel_3, Jugador
 
 
 class Rocket:
@@ -18,14 +18,20 @@ class Rocket:
 
         self.escenarios = [
             Portada(self.pantalla),
-            Partida(self.pantalla),
+            Nivel_1(self.pantalla),
+            Nivel_2(self.pantalla),
+            Nivel_3(self.pantalla),
             Jugador(self.pantalla)
         ]
 
     def jugar(self):
         """Este es el bucle principal"""
         for escena in self.escenarios:
-            escena.bucle_principal()
+            finalizado = escena.bucle_principal()
+            if finalizado:
+                break
+        print("Se Acabo el For")
+        pg.quit()
 
 
 
