@@ -1,7 +1,7 @@
 import pygame as pg
 import os
 from rocket import ALTO, ANCHO
-from caracteres import Nave
+from .caracteres import Nave
 
 
 class Escena:
@@ -60,7 +60,7 @@ class Nivel_1(Escena):
        
         ruta = os.path.join("resources", "fondos", "1.jpg")
         self.fondo = pg.image.load(ruta)
-        self.jugador = Nave()
+        self.jugador = Nave(self.pantalla)
 
     def bucle_principal(self):
         super().bucle_principal()
