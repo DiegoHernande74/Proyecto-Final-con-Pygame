@@ -60,7 +60,7 @@ class Nivel_1(Escena):
        
         ruta = os.path.join("resources", "fondos", "1.jpg")
         self.fondo = pg.image.load(ruta)
-        self.jugador = Nave(self.pantalla)
+        self.jugador = Nave()
 
     def bucle_principal(self):
         super().bucle_principal()

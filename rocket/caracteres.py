@@ -1,8 +1,8 @@
 import os
 import pygame as pg
 from pygame.sprite import Sprite
-from rocket import ANCHO, ALTO
-import sys
+from rocket import ANCHO, ALTO , FPS
+
 
 
 """
@@ -18,23 +18,23 @@ Restricciones
 .Una vez alcanzado el nivel superior o inferior de la pantalla la nave se quedará parada.No desaparecerá de la pantalla ni aparecerá por el otro lado.
 """
 
-class Nave(pg.Rect):
-    imagen_Ancho = 30
-    imagen_Alto = 30
-    margen_in = 10
-    speed = 5
 
-    
-    def __init__(self, pantalla):
-        super().__init__()
-        self.pantalla = pantalla
-        self.image = pg.image.load(os.path.join("resources", "Ships", "spaceShips_001.png"))
-        self.image_Ancho = self.image.get_width()
-        self.image_Alto = self.image.get_height()
-        self.rect = self.image.get_rect()
-        self.rect.x = 0
-        self.rect.centery = pantalla.get_rect().centery
+class Nave():
+
+    margen_in = 20
+    speed = 5
+    fps_animacion = 15
+    limite_animacion = FPS // fps_animacion
+    iteracion = 0
+
+    def __init__(self):
+        imgen = pg.image.load(os.path.join("resources", "Ships", "spaceShips_001.png"))
+        self.image = pg.transform.scale(imgen,(30,60))
+        self.rect = self.image.get_rect(
+            midbottom=(ANCHO/2, ALTO-self.margen_in))
         
+        
+
     def update(self):
         keys = pg.key.get_pressed()
         if keys[pg.K_UP]:
@@ -45,6 +45,8 @@ class Nave(pg.Rect):
         self.pantalla.fill((255, 255, 255)) # Limpia la pantalla
         self.pantalla.blit(self.image, self.rect) # Dibuja la imagen en su nueva posición
         pg.display.flip() # Actualiza la pantalla
+    
+        
 
     
     
